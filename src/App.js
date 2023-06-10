@@ -1,25 +1,68 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react'
+import './App.css'
 
-function App() {
+import Hero from './components/Hero/Hero'
+import Content from './components/Content/Content'
+import Footer from './components/Footer/Footer'
+import Intro from './components/Intro/Intro'
+import Tokens from './components/Tokens/Tokens'
+import Snake from './components/Snake/Snake'
+
+export default function App() {
+  const [showModal, setShowModal] = useState(true)
+  const [videoEnded, setVideoEnded] = useState(false)
+  const [tokenWin, setTokenWin] = useState(false)
+
+  useEffect(() => {
+    if (videoEnded || tokenWin) {
+      const gameBoardContainer = document.querySelector('.snake-game')
+
+      if (gameBoardContainer) {
+        gameBoardContainer.focus()
+      }
+    }
+  }, [videoEnded, tokenWin])
+
+  const handleClickToEnter = () => {
+    setShowModal(false)
+  }
+
+  const handleVideoEnded = () => {
+    setVideoEnded(true)
+  }
+
+  // detecting the viewport based on browser/device
+
+  let vh = window.innerHeight * 0.01
+  document.documentElement.style.setProperty('--vh', `${vh}px`)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='app-container'>
+      <div className={`outer-border ${showModal ? 'blur' : ''}`}>
+        <div className='inner-border'>
+          <div className='body'>
+            {tokenWin ? (
+              <Snake autofocus />
+            ) : (
+              <>
+                <Content
+                  showModal={showModal}
+                  handleVideoEnded={handleVideoEnded}
+                  videoEnded={videoEnded}
+                />
+                <Tokens
+                  videoEnded={videoEnded}
+                  tokenWin={tokenWin}
+                  setTokenWin={setTokenWin}
+                />
+              </>
+            )}
+          </div>
+        </div>
+      </div>
+      <Intro showModal={showModal} handleClickToEnter={handleClickToEnter} />
+      <Hero showModal={showModal} />
+      <Footer showModal={showModal} />
     </div>
-  );
+  )
 }
-
-export default App;

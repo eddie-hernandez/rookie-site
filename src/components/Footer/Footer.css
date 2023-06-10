@@ -1,0 +1,32 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1vh 1vh 2vh 1vh;
+}
+
+.app-name {
+  font-weight: bold;
+}
+
+.social-media-icons img {
+  width: 3vh;
+  height: 3vh;
+}
+
+.social-media-icons img:first-child {
+  margin-left: 5px;
+}
+
+@media (max-width: 576px) {
+  .footer {
+    padding: 2vh 1vh;
+  }
+}
+
+/* Large devices (e.g., desktops) */
+@media (min-width: 992px) and (max-width: 1440px) {
+  .footer {
+    padding: 1vh 1vh 0vh 1vh;
+  }
+}

@@ -1,0 +1,45 @@
+@keyframes slideUp {
+  0% {
+    transform: translate(-50%, 200%);
+  }
+  100% {
+    transform: translate(-50%);
+  }
+}
+
+.hero-wrapper {
+  z-index: 1;
+}
+
+.image2 {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin-top: -6vh;
+  width: 20vw;
+  animation: 10s ease 0s 1 slideUp;
+  transform: translate(-50%);
+}
+
+/* Small devices (e.g., smartphones) */
+@media (max-width: 576px) {
+  .image2 {
+    width: 50vw;
+    margin-top: -2vh;
+  }
+}
+
+/* Medium devices (e.g., tablets) */
+@media (min-width: 576px) and (max-width: 992px) {
+  .image2 {
+    width: 50vw;
+    margin-top: -5vh;
+  }
+}
+
+/* Large devices (e.g., desktops) */
+@media (min-width: 992px) and (max-width: 1440px) {
+  .image2 {
+    width: 20vw;
+  }
+}

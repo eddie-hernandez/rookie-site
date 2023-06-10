@@ -1,13 +1,11 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+* {
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  font-family: 'Urbanist', sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html,
+body {
+  background-color: #FAF9F6;
+  animation: fadeInAnimation ease-in 0.35s;
 }
