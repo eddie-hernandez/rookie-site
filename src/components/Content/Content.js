@@ -11,13 +11,19 @@ export default function Content({ videoEnded, showModal, handleVideoEnded, video
         <ReactPlayer
           url={RookieVideo}
           playing={videoPlay}
-          playsinline
           muted={!videoPlay}
-          controls={false}
           width='100%'
           height='100%'
           className='react-player'
           onEnded={handleVideoEnded}
+          config={{
+            file: {
+              attributes: {
+                playsinline: true,
+                controls: false
+              },
+            },
+          }}
         />
       ) : (
         <button
