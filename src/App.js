@@ -13,16 +13,6 @@ export default function App() {
   const [videoEnded, setVideoEnded] = useState(false)
   const [tokenWin, setTokenWin] = useState(false)
 
-  useEffect(() => {
-    if (videoEnded || tokenWin) {
-      const gameBoardContainer = document.querySelector('.snake-game')
-
-      if (gameBoardContainer) {
-        gameBoardContainer.focus()
-      }
-    }
-  }, [videoEnded, tokenWin])
-
   const handleClickToEnter = () => {
     setShowModal(false)
   }
@@ -30,6 +20,16 @@ export default function App() {
   const handleVideoEnded = () => {
     setVideoEnded(true)
   }
+
+  useEffect(() => {
+    if (videoEnded || tokenWin) {
+      const gameBoardContainer = document.querySelector('.snake-board')
+
+      if (gameBoardContainer) {
+        gameBoardContainer.focus()
+      }
+    }
+  }, [videoEnded, tokenWin])
 
   // detecting the viewport based on browser/device
 
@@ -42,7 +42,7 @@ export default function App() {
         <div className='inner-border'>
           <div className='body'>
             {tokenWin ? (
-              <Snake autofocus />
+              <Snake autoFocus={true} />
             ) : (
               <>
                 <Content

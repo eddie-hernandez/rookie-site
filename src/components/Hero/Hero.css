@@ -24,7 +24,7 @@
 /* Small devices (e.g., smartphones) */
 @media (max-width: 576px) {
   .image2 {
-    width: 50vw;
+    width: 45vw;
     margin-top: -2vh;
   }
 }
@@ -32,7 +32,7 @@
 /* Medium devices (e.g., tablets) */
 @media (min-width: 576px) and (max-width: 992px) {
   .image2 {
-    width: 50vw;
+    width: 45vw;
     margin-top: -5vh;
   }
 }

@@ -1,0 +1,25 @@
+.snake-board {
+  position: relative;
+  width: 30vh;
+  height: 30vh;
+  background-color: black;
+}
+
+.snake-segment {
+  position: absolute;
+  background-color: #09ff00;
+  border: 1px solid #09ff00;
+  box-sizing: border-box;
+}
+
+.food {
+  position: absolute;
+  box-sizing: border-box;
+}
+
+@media (max-width: 576px) {
+  .snake-board {
+    width: 25vh;
+    height: 25vh;
+  }
+}
