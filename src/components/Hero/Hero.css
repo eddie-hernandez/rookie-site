@@ -27,6 +27,14 @@
     width: 45vw;
     margin-top: -2vh;
   }
+  @keyframes slideUp {
+    0% {
+      transform: translate(-50%, 400%);
+    }
+    100% {
+      transform: translate(-50%);
+    }
+  }
 }
 
 /* Medium devices (e.g., tablets) */
@@ -35,6 +43,7 @@
     width: 45vw;
     margin-top: -5vh;
   }
+  
 }
 
 /* Large devices (e.g., desktops) */
