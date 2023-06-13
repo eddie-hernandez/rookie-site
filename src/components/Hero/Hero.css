@@ -29,7 +29,7 @@
   }
   @keyframes slideUp {
     0% {
-      transform: translate(-50%, 400%);
+      transform: translate(-50%, 350%);
     }
     100% {
       transform: translate(-50%);
