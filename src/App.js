@@ -16,6 +16,7 @@ export default function App() {
 
   const handleClickToEnter = () => {
     setShowModal(false)
+    setVideoPlay(!videoPlay)
   }
 
   const handleVideoEnded = () => {
@@ -64,7 +65,6 @@ export default function App() {
       </div>
       <Intro
         showModal={showModal}
-        setVideoPlay={setVideoPlay}
         handleClickToEnter={handleClickToEnter}
       />
       <Hero showModal={showModal} />
