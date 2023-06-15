@@ -27,6 +27,7 @@ export default function Content({ videoEnded, showModal, playerRef, setVideoEnde
           className='react-player'
           onEnded={handleVideoEnded}
           controls={false}
+          muted
           playsinline
         />
       ) : (
