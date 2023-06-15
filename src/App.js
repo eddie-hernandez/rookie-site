@@ -18,8 +18,8 @@ export default function App() {
     setShowModal(false)
     if (playerRef.current) {
       playerRef.current.seekTo(0) // Start playing from the beginning
+      playerRef.current.setVolume(1)
       playerRef.current.play()
-      playerRef.current.muted = false
     }
   }
 
