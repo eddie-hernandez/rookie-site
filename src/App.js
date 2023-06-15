@@ -10,18 +10,17 @@ import Snake from './components/Snake/Snake'
 
 export default function App() {
   const [showModal, setShowModal] = useState(true)
-  const [videoPlay, setVideoPlay] = useState(false)
   const [videoEnded, setVideoEnded] = useState(false)
   const [tokenWin, setTokenWin] = useState(false)
 
   const handleClickToEnter = () => {
     setShowModal(false)
-    setVideoPlay(!videoPlay)
   }
 
   const handleVideoEnded = () => {
     setVideoEnded(true)
   }
+
 
   useEffect(() => {
     if (videoEnded || tokenWin) {
@@ -51,7 +50,7 @@ export default function App() {
                   showModal={showModal}
                   handleVideoEnded={handleVideoEnded}
                   videoEnded={videoEnded}
-                  videoPlay={videoPlay}
+
                 />
                 <Tokens
                   videoEnded={videoEnded}
@@ -63,10 +62,7 @@ export default function App() {
           </div>
         </div>
       </div>
-      <Intro
-        showModal={showModal}
-        handleClickToEnter={handleClickToEnter}
-      />
+      <Intro showModal={showModal} handleClickToEnter={handleClickToEnter} />
       <Hero showModal={showModal} />
       <Footer showModal={showModal} />
     </div>

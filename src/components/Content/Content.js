@@ -4,26 +4,27 @@ import RookieVideo from '../../assets/rookiecommercial2023.mov'
 import ReactPlayer from 'react-player'
 import OrderButton from '../../assets/order-button-no-border.png'
 
-export default function Content({ videoEnded, showModal, handleVideoEnded, videoPlay }) {
+export default function Content({ videoEnded, showModal, handleVideoEnded }) {
+
   return (
     <div className={videoEnded ? 'button-container' : 'video-container'}>
       {!showModal && !videoEnded ? (
         <ReactPlayer
           url={RookieVideo}
-          playing={videoPlay}
-          muted={!videoPlay}
+          playing={!showModal}
           width='100%'
           height='100%'
           className='react-player'
           onEnded={handleVideoEnded}
-          // config={{
-          //   file: {
-          //     attributes: {
-          //       playsinline: true,
-          //       // controls: false
-          //     },
-          //   },
-          // }}
+          config={{
+            file: {
+              attributes: {
+                playsinline: true,
+                // controls: {controlsOn},
+                // controlsList: 'play nodownload'
+              },
+            },
+          }}
         />
       ) : (
         <button
