@@ -20,7 +20,6 @@ export default function Content({ videoEnded, showModal, handleVideoEnded, video
             file: {
               attributes: {
                 playsinline: true,
-                controls: false
               },
             },
           }}
