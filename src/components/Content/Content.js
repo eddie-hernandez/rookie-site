@@ -16,15 +16,7 @@ export default function Content({ videoEnded, showModal, handleVideoEnded }) {
           height='100%'
           className='react-player'
           onEnded={handleVideoEnded}
-          config={{
-            file: {
-              attributes: {
-                playsinline: true,
-                // controls: {controlsOn},
-                // controlsList: 'play nodownload'
-              },
-            },
-          }}
+          playsinline
         />
       ) : (
         <button
