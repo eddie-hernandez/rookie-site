@@ -28,7 +28,7 @@ export default function Content({ videoEnded, showModal, playerRef, setVideoEnde
           onEnded={handleVideoEnded}
           controls={false}
           playsinline
-          muted={showModal}
+          muted={true}
         />
       ) : (
         <button
