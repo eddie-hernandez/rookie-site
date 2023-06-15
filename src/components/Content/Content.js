@@ -1,15 +1,10 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import './Content.css'
 import RookieVideo from '../../assets/rookiecommercial2023.mov'
 import ReactPlayer from 'react-player'
 import OrderButton from '../../assets/order-button-no-border.png'
 
-export default function Content({ videoEnded, showModal, playerRef, setVideoEnded }) {
-  useEffect(() => {
-    if (playerRef.current) {
-      playerRef.current.seekTo(0)
-    }
-  }, [playerRef])
+export default function Content({ videoEnded, showModal, playerRef, setVideoEnded, muted }) {
 
   const handleVideoEnded = () => {
     setVideoEnded(true)
@@ -27,7 +22,7 @@ export default function Content({ videoEnded, showModal, playerRef, setVideoEnde
           className='react-player'
           onEnded={handleVideoEnded}
           controls={false}
-          muted
+          muted={muted}
           playsinline
         />
       ) : (

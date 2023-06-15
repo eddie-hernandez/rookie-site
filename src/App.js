@@ -14,14 +14,22 @@ export default function App() {
   const [tokenWin, setTokenWin] = useState(false)
   const playerRef = useRef(null)
 
-  const handlePlay = () => {
+  const handleEnter = () => {
     setShowModal(false)
     if (playerRef.current) {
-      playerRef.current.seekTo(0) // Start playing from the beginning
-      playerRef.current.unmute()
-      playerRef.current.play()
+      playerRef.current.muted = false; // Unmute the player
+      playerRef.current.seekTo(0);
+      playerRef.current.play();
     }
   }
+
+  useEffect(() => {
+    if (playerRef.current) {
+      playerRef.current.muted = false
+      playerRef.current.seekTo(0)
+      playerRef.current.play()
+    }
+  }, [playerRef])
 
   useEffect(() => {
     if (videoEnded || tokenWin) {
@@ -52,6 +60,7 @@ export default function App() {
                   videoEnded={videoEnded}
                   playerRef={playerRef}
                   setVideoEnded={setVideoEnded}
+                  muted={false}
                 />
                 <Tokens
                   videoEnded={videoEnded}
@@ -63,7 +72,7 @@ export default function App() {
           </div>
         </div>
       </div>
-      <Intro showModal={showModal} handlePlay={handlePlay} />
+      <Intro showModal={showModal} handleEnter={handleEnter} />
       <Hero showModal={showModal} />
       <Footer showModal={showModal} />
     </div>
