@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import './App.css'
 
 import Hero from './components/Hero/Hero'
@@ -12,9 +12,18 @@ export default function App() {
   const [showModal, setShowModal] = useState(true)
   const [videoEnded, setVideoEnded] = useState(false)
   const [tokenWin, setTokenWin] = useState(false)
+  const playerRef = useRef(null);
+  
+  const handlePlay = () => {
+    if (playerRef.current) {
+      playerRef.current.seekTo(0); // Start playing from the beginning
+      playerRef.current.play();
+    }
+  };
 
   const handleClickToEnter = () => {
     setShowModal(false)
+    handlePlay()
   }
 
   const handleVideoEnded = () => {
@@ -50,6 +59,7 @@ export default function App() {
                   showModal={showModal}
                   handleVideoEnded={handleVideoEnded}
                   videoEnded={videoEnded}
+                  playerRef={playerRef}
 
                 />
                 <Tokens
