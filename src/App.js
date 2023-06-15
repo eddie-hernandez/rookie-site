@@ -17,9 +17,9 @@ export default function App() {
   const handlePlay = () => {
     setShowModal(false)
     if (playerRef.current) {
-      playerRef.current.muted = false
       playerRef.current.seekTo(0) // Start playing from the beginning
       playerRef.current.play()
+      playerRef.current.muted = false
     }
   }
 
