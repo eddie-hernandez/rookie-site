@@ -6,9 +6,9 @@ import Email from '../../assets/email.png'
 export default function Footer({showModal}) {
   return (
     <div className={`footer ${showModal ? 'blur' : ''}`}>
-      <h4 className='app-name'>
+      <h6 className='app-name'>
         Rookie Pizza &#169; 2023 All Rights Reserved.{' '}
-      </h4>
+      </h6>
       <div className='social-media-icons'>
         <a href='https://instagram.com/rookie.pizza'>
           <img src={Insta} alt='Instagram' />

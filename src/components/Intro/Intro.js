@@ -7,13 +7,13 @@ export default function Intro({ showModal, setShowModal, handleEnter }) {
   return (
     <div className={`modal ${showModal ? 'show' : ''}`}>
       <div className='modal-content'>
-        <h1>Welcome to Rookie Pizza!</h1>
+        <h1>WELCOME TO ROOKIE PIZZA</h1>
         <h3>
-          This website includes sound. <br />We recommend turning it on for the full
+          This website includes sound.<br />We recommend turning it on for the full
           experience.
         </h3>
-        <p></p>
-        <button onClick={() => {setShowModal(false)}}>Enter Site</button>
+        <br />
+        <button onClick={() => {setShowModal(false)}}>ENTER SITE</button>
       </div>
     </div>
   )

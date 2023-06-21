@@ -6,6 +6,11 @@
   font-family: 'ms_sans_serif', monospace;
 }
 
+.snake-container button {
+  font-size: 1.75vh;
+  cursor: pointer;
+}
+
 .snake-window {
   width: 100%;
   max-width: 40vh;
@@ -41,7 +46,7 @@
 }
 
 .snake-title {
-  font-size: 2rem;
+  font-size: 3vh;
   font-family: 'ms_sans_serif', monospace;
 }
 
@@ -56,6 +61,7 @@
   border: 4px solid rgb(142, 142, 142);
   width: 30vh;
   padding: 1vh 0vh;
+
 }
 
 .snake-buttons {
@@ -70,7 +76,6 @@
 }
 
 .snake-buttons button {
-  font-size: 1.5vh;
   padding: 2px 4px;
 }
 
