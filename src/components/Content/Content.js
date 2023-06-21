@@ -4,25 +4,20 @@ import RookieVideo from '../../assets/rookiecommercial2023.mov'
 import ReactPlayer from 'react-player'
 import OrderButton from '../../assets/order-button-no-border.png'
 
-export default function Content({ videoEnded, showModal, playerRef, setVideoEnded, muted }) {
-
-  const handleVideoEnded = () => {
-    setVideoEnded(true)
-  }
+export default function Content({ videoEnded, showModal, playerRef, setVideoEnded }) {
 
   return (
     <div className={videoEnded ? 'button-container' : 'video-container'}>
-      {!showModal && !videoEnded ? (
+      {!videoEnded ? (
         <ReactPlayer
           ref={playerRef}
           url={RookieVideo}
-          playing={true}
+          playing={!showModal}
           width='100%'
           height='100%'
           className='react-player'
-          onEnded={handleVideoEnded}
+          onEnded={() => {setVideoEnded(true)}}
           controls={false}
-          muted={muted}
           playsinline
         />
       ) : (

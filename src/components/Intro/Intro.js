@@ -1,12 +1,8 @@
 import React from 'react'
 import './Intro.css'
 
-export default function Intro({ showModal, handleEnter }) {
+export default function Intro({ showModal, setShowModal, handleEnter }) {
 
-  const handleClick = () => {
-    // trigger video playback and unmute
-    handleEnter()
-  }
 
   return (
     <div className={`modal ${showModal ? 'show' : ''}`}>
@@ -17,7 +13,7 @@ export default function Intro({ showModal, handleEnter }) {
           experience.
         </h3>
         <p></p>
-        <button onClick={handleClick}>Enter Site</button>
+        <button onClick={() => {setShowModal(false)}}>Enter Site</button>
       </div>
     </div>
   )
