@@ -8,6 +8,7 @@ import Intro from './components/Intro/Intro'
 import Tokens from './components/Tokens/Tokens'
 import Snake from './components/Snake/Snake'
 import ScrollerText from './components/scrollerText/ScrollerText'
+import ModalFooter from './components/ModalFooter/ModalFooter'
 
 export default function App() {
   const [showModal, setShowModal] = useState(true)
@@ -61,6 +62,7 @@ export default function App() {
         <Hero showModal={showModal} />
         <Footer showModal={showModal} />
       </div>
+      <ModalFooter showModal={showModal} />
     </>
   )
 }
