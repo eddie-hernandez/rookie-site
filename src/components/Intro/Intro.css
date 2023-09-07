@@ -8,7 +8,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(99, 99, 99, 0.8);
+  background-color: rgba(221, 221, 221, 0.8);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -28,7 +28,7 @@
   backdrop-filter: blur(5px);
   padding: 20px;
   text-align: center;
-  color: #fff;
+  color: #000000;
 }
 
 .modal h1 {
@@ -46,23 +46,4 @@
   font-family: "Urbanist", sans-serif;
   border-radius: 10px;
   border: 2px solid black;
-}
-
-.scrolling-text-container {
-  overflow: hidden;
-  white-space: nowrap;
-}
-
-.scrolling-text {
-  animation: scrollLeft 3s linear infinite;
-  display: inline-block;
-}
-
-@keyframes scrollLeft {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
 }

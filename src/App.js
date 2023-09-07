@@ -7,13 +7,13 @@ import Footer from './components/Footer/Footer'
 import Intro from './components/Intro/Intro'
 import Tokens from './components/Tokens/Tokens'
 import Snake from './components/Snake/Snake'
+import ScrollerText from './components/scrollerText/ScrollerText'
 
 export default function App() {
   const [showModal, setShowModal] = useState(true)
   const [videoEnded, setVideoEnded] = useState(false)
   const [tokenWin, setTokenWin] = useState(false)
   const playerRef = useRef(null)
-
 
   useEffect(() => {
     if (videoEnded || tokenWin) {
@@ -31,33 +31,36 @@ export default function App() {
   document.documentElement.style.setProperty('--vh', `${vh}px`)
 
   return (
-    <div className='app-container'>
-      <div className={`outer-border ${showModal ? 'blur' : ''}`}>
-        <div className='inner-border'>
-          <div className='body'>
-            {tokenWin ? (
-              <Snake autoFocus={true} />
-            ) : (
-              <>
-                <Content
-                  showModal={showModal}
-                  videoEnded={videoEnded}
-                  playerRef={playerRef}
-                  setVideoEnded={setVideoEnded}
-                />
-                <Tokens
-                  videoEnded={videoEnded}
-                  tokenWin={tokenWin}
-                  setTokenWin={setTokenWin}
-                />
-              </>
-            )}
+    <>
+      <ScrollerText showModal={showModal} />
+      <div className="app-container">
+        <div className={`outer-border ${showModal ? 'blur' : ''}`}>
+          <div className="inner-border">
+            <div className="body">
+              {tokenWin ? (
+                <Snake autoFocus={true} />
+              ) : (
+                <>
+                  <Content
+                    showModal={showModal}
+                    videoEnded={videoEnded}
+                    playerRef={playerRef}
+                    setVideoEnded={setVideoEnded}
+                  />
+                  <Tokens
+                    videoEnded={videoEnded}
+                    tokenWin={tokenWin}
+                    setTokenWin={setTokenWin}
+                  />
+                </>
+              )}
+            </div>
           </div>
         </div>
+        <Intro showModal={showModal} setShowModal={setShowModal} />
+        <Hero showModal={showModal} />
+        <Footer showModal={showModal} />
       </div>
-      <Intro showModal={showModal} setShowModal={setShowModal} />
-      <Hero showModal={showModal} />
-      <Footer showModal={showModal} />
-    </div>
+    </>
   )
 }

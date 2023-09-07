@@ -41,12 +41,6 @@ export default function Intro({ showModal, setShowModal, handleEnter }) {
   return (
     <div className={`modal ${showModal ? 'show' : ''}`}>
       <div className="modal-content">
-        <div className='scrolling-text-container'>
-          <div className='scrolling-text'>
-            ROOKIE PIZZA
-          </div>
-
-        </div>
         <h1>WELCOME TO ROOKIE PIZZA</h1>
         <h3>
           This website includes sound.
