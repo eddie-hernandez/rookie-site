@@ -78,7 +78,8 @@
     margin-top: 3vh;
     width: 70vw;
   }
-  .modal-scroll-view-window {
+
+  .modal-content-container {
     width: 80vw;
     height: 50vh;
   }
@@ -92,6 +93,6 @@
   }
 
   .modal p {
-    font-size: 2vh;
+    font-size: 1.5vh;
   }
 }
