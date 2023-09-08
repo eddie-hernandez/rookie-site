@@ -76,7 +76,7 @@ export default function App() {
           </div>
         </div>
         <Intro showModal={showModal} setShowModal={setShowModal} />
-        <Hero showModal={showModal} />
+        <Hero showModal={showModal} videoEnded={videoEnded} />
         <Footer showModal={showModal} />
       </div>
     </>
