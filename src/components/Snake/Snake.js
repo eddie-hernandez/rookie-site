@@ -1,12 +1,18 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { Button, Window, WindowContent, WindowHeader } from 'react95'
+import {
+  Button,
+  Window,
+  WindowContent,
+  WindowHeader,
+  ScrollView,
+} from 'react95'
 import { ThemeProvider } from 'styled-components'
 import original from 'react95/dist/themes/original'
 import pixelPizza from '../../assets/pixel-pizza.png'
 import './Snake.css'
 import './SnakeBoard.css'
 
-export default function Snake({ autoFocus }) {
+export default function Snake({ resLink }) {
   const useKeyboardInput = (callback) => {
     useEffect(() => {
       const handleKeyDown = (event) => {
@@ -154,11 +160,36 @@ export default function Snake({ autoFocus }) {
       height: `${cellSize}px`,
     }
   }
+
   return (
     <>
       <ThemeProvider theme={original}>
-        <div className='snake-container'>
-          <Window className='snake-window'>
+        <div className="snake-failure-container">
+          <Window className="snake-failure-window">
+            <WindowHeader>
+              <span
+                style={{
+                  fontFamily: 'ms_sans_serif',
+                  float: 'left',
+                  paddingLeft: '0.5vh',
+                }}
+              >
+                PizzaPlayer 2000XP
+              </span>
+            </WindowHeader>
+            <ScrollView style={{ width: '100%', height: '80%' }}>
+              <div className="snake-failure-content">
+                <h2>woah there buddy,</h2>
+                <h3>
+                  To play snake, you must rotate your device to portrait mode.
+                </h3>
+              </div>
+            </ScrollView>
+          </Window>
+        </div>
+
+        <div className="snake-container">
+          <Window className="snake-window">
             <WindowHeader>
               <span
                 style={{
@@ -171,31 +202,47 @@ export default function Snake({ autoFocus }) {
               </span>
             </WindowHeader>
             <WindowContent>
-              <div className='snake-content'>
-                <div className='snake-screen'>
+              <div className="snake-content">
+                <div className="snake-screen">
                   {playing ? (
                     <>
                       {gameOver ? (
-                        <div className='snake-title-and-play'>
-                          <div className='snake-title'>
-                            <h3>You lose :(</h3>
+                        <>
+                          <div className="snake-title-and-play">
+                            <h3
+                              className="snake-title"
+                              style={{ marginBottom: '0.5vh' }}
+                            >
+                              wow, bud, you lost
+                            </h3>
                             <Button
                               onClick={handleStartGame}
-                              className='snake-play-button'
+                              className="snake-play-button"
+                              style={{ marginTop: '-1vh' }}
                             >
-                              Play Again
+                              Play Again?
+                            </Button>
+                            <Button
+                              style={{ fontSize: '2.5vh' }}
+                              as="a"
+                              className="snake-reserve-button"
+                              href={resLink}
+                              target="_blank"
+                              rel="noreferrer"
+                            >
+                              Reserve a Pie
                             </Button>
                           </div>
-                        </div>
+                        </>
                       ) : (
                         <div
-                          className='snake-board'
+                          className="snake-board"
                           ref={gameBoardRef}
-                          tabIndex='0'
+                          tabIndex="0"
                         >
                           {snake.map((segment, index) => (
                             <div
-                              className='snake-segment'
+                              className="snake-segment"
                               key={index}
                               style={calculateSegmentStyle(
                                 segment,
@@ -209,9 +256,9 @@ export default function Snake({ autoFocus }) {
                             />
                           ))}
                           <img
-                            className='food'
+                            className="food"
                             src={pixelPizza}
-                            alt='Food'
+                            alt="Food"
                             style={calculateFoodStyle(
                               gameBoardRef.current
                                 ? gameBoardRef.current.offsetWidth
@@ -225,12 +272,12 @@ export default function Snake({ autoFocus }) {
                       )}
                     </>
                   ) : (
-                    <div className='snake-title-and-play'>
+                    <div className="snake-title-and-play">
                       <div>
-                        <h3 className='snake-title'>Snake</h3>
+                        <h3 className="snake-title">snake vs. pizza</h3>
                       </div>
                       <Button
-                        className='snake-play-button'
+                        className="snake-play-button"
                         onClick={handleStartGame}
                       >
                         Press Play
@@ -238,28 +285,37 @@ export default function Snake({ autoFocus }) {
                     </div>
                   )}
                 </div>
-                <div className='snake-controls'>
-                  <Button className='snake-reserve-button'>
-                    Reserve a Pie
-                  </Button>
-                  <div className='snake-buttons'>
-                    <div className='row-1'>
-                      <button onClick={() => handleButtonClick(38)}>
+                <div className="snake-controls">
+                  <div className="snake-buttons">
+                    <div className="row-1">
+                      <Button
+                        className="matrix-button"
+                        onClick={() => handleButtonClick(38)}
+                      >
                         &uarr;
-                      </button>
+                      </Button>
                     </div>
-                    <div className='row-2'>
-                      <button onClick={() => handleButtonClick(37)}>
+                    <div className="row-2">
+                      <Button
+                        className="matrix-button"
+                        onClick={() => handleButtonClick(37)}
+                      >
                         &larr;
-                      </button>
-                      <button onClick={() => handleButtonClick(39)}>
+                      </Button>
+                      <Button
+                        className="matrix-button"
+                        onClick={() => handleButtonClick(39)}
+                      >
                         &rarr;
-                      </button>
+                      </Button>
                     </div>
-                    <div className='row-3'>
-                      <button onClick={() => handleButtonClick(40)}>
+                    <div className="row-3">
+                      <Button
+                        className="matrix-button"
+                        onClick={() => handleButtonClick(40)}
+                      >
                         &darr;
-                      </button>
+                      </Button>
                     </div>
                   </div>
                 </div>

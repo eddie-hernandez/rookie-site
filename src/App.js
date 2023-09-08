@@ -8,12 +8,15 @@ import Intro from './components/Intro/Intro'
 import Tokens from './components/Tokens/Tokens'
 import Snake from './components/Snake/Snake'
 import ScrollerText from './components/scrollerText/ScrollerText'
-import ModalFooter from './components/ModalFooter/ModalFooter'
 
 export default function App() {
   const [showModal, setShowModal] = useState(true)
   const [videoEnded, setVideoEnded] = useState(false)
   const [tokenWin, setTokenWin] = useState(false)
+  const [resLink, setResLink] = useState('')
+  const spreadsheetId = process.env.REACT_APP_GOOGLE_SPREADSHEET_ID
+  const apiKey = process.env.REACT_APP_GOOGLE_API_KEY
+  const apiURL = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/sheet1!C2?key=${apiKey}`
   const playerRef = useRef(null)
 
   useEffect(() => {
@@ -31,6 +34,18 @@ export default function App() {
   let vh = window.innerHeight * 0.01
   document.documentElement.style.setProperty('--vh', `${vh}px`)
 
+  useEffect(() => {
+    // fetch data from Google Sheets
+    fetch(apiURL)
+      .then((response) => response.json())
+      .then((data) => {
+        setResLink(data.values[0][0])
+      })
+      .catch((error) => {
+        console.error('Error fetching data:', error)
+      })
+  }, [])
+
   return (
     <>
       <ScrollerText showModal={showModal} />
@@ -38,15 +53,17 @@ export default function App() {
         <div className={`outer-border ${showModal ? 'blur' : ''}`}>
           <div className="inner-border">
             <div className="body">
-              {tokenWin ? (
-                <Snake autoFocus={true} />
-              ) : (
+              {/* {tokenWin ? ( */}
+                <Snake autoFocus={true} resLink={resLink} />
+              {/* ) : (
                 <>
                   <Content
                     showModal={showModal}
                     videoEnded={videoEnded}
                     playerRef={playerRef}
                     setVideoEnded={setVideoEnded}
+                    setResLink={setResLink}
+                    resLink={resLink}
                   />
                   <Tokens
                     videoEnded={videoEnded}
@@ -54,7 +71,7 @@ export default function App() {
                     setTokenWin={setTokenWin}
                   />
                 </>
-              )}
+              )} */}
             </div>
           </div>
         </div>
@@ -62,7 +79,6 @@ export default function App() {
         <Hero showModal={showModal} />
         <Footer showModal={showModal} />
       </div>
-      <ModalFooter showModal={showModal} />
     </>
   )
 }

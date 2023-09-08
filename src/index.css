@@ -9,8 +9,9 @@
 }
 
 @font-face {
-  font-family: 'bauhaus93';
-  src: url('./fonts/BAUHS93.ttf') format('ttf');
+  font-family: 'Blippo Black';
+  src: url('./fonts/Blippo\ Black\ Regular.otf') format('otf');
+  font-weight: normal;
   font-style: normal;
 }
 

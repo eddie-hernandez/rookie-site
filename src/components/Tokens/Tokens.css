@@ -39,7 +39,7 @@
   right: 25vh;
 }
 
-@media screen and (max-width: 480px) {
+/* @media screen and (max-width: 480px) {
   .one {
     top: 15vh;
     right: 20vh;
@@ -121,5 +121,32 @@
   .five {
     top: 30vh;
     right: 25vh;
+  }
+} */
+
+@media screen and (max-width: 1000px) {
+  .one {
+    top: 10vh;
+    right: 8vh;
+  }
+  
+  .two {
+    top: 85vh;
+    left: 2vh;
+  }
+
+  .three {
+    top: 5vh;
+    left: 2vh;
+  }
+
+  .four {
+    bottom: 1.5vh;
+    right: 8vh;
+  }
+
+  .five {
+    top: 10vh;
+    right: 20vh;
   }
 }

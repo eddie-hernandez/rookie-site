@@ -15,11 +15,9 @@ export default function Tokens({ videoEnded, tokenWin, setTokenWin }) {
   ]
 
   function tokenChange() {
-    console.log(tokenNumber)
     const currentIndex = tokenNumbers.indexOf(tokenNumber)
     if (tokenNumber === 'five') {
       setTokenWin(!tokenWin)
-      console.log(tokenWin)
       return
     } else if (currentIndex !== -1) {
       const nextIndex = (currentIndex + 1) % tokenNumbers.length

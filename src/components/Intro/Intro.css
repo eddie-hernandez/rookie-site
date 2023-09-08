@@ -6,10 +6,11 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   background-color: rgba(255, 255, 255, 0.8);
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   z-index: 9999;
@@ -27,9 +28,20 @@
 }
 
 .modal-content-container {
-  padding: 20px;
   text-align: center;
-  color: #000000;
+  display: flex;
+  height: 70vh;
+  flex-direction: column;
+  row-gap: 1vh;
+}
+
+.modal-post-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 5vh;
+  padding: 2vh 0vh;
 }
 
 .modal-content {
@@ -37,9 +49,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  row-gap: 5vh;
-  margin-bottom: 2vh;
-  padding: 2vh 0vh;
+  row-gap: 3vh;
+  margin-bottom: 5vh;
 }
 
 .modal-header-content {
@@ -57,7 +68,6 @@
 
 .modal button {
   padding: 10px 20px 5px 20px;
-  margin-bottom: 2vh;
   font-size: 3vh;
   cursor: pointer;
   background-color: #ff1e00;
@@ -75,24 +85,31 @@
   color: white;
 }
 
-.modal-scroll-view-window {
-  width: 100%;
-  height: 100%;
+.modal-footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-footer-text {
+  text-align: center;
+  font-family: 'Special Elite', cursive;
 }
 
 @media screen and (max-width: 1000px) {
-  .rookie-modal-logo {
-    margin-top: 3vh;
-    width: 70vw;
+  .modal-content-container {
+    justify-content: center;
+    align-items: center;
   }
 
-  .modal-content-container {
-    width: 80vw;
-    height: 50vh;
+  .rookie-modal-logo {
+    margin-top: 3vh;
+    width: 40vh;
   }
 
   .modal-content {
-    row-gap: 2vh;
+    height: 25vh;
   }
 
   .modal h1 {
@@ -101,5 +118,33 @@
 
   .modal p {
     font-size: 1.5vh;
+  }
+}
+
+@media screen and (max-width: 1000px) and (orientation: landscape) {
+  .modal-content-container {
+    justify-content: center;
+    align-items: center;
+    row-gap: 3vh;
+  }
+
+  .rookie-modal-logo {
+    width: 50vw;
+  }
+
+  .modal-content {
+    height: 50vh;
+  }
+
+  .modal h1 {
+    font-size: 4vh;
+  }
+
+  .modal p {
+    font-size: 2.5vh;
+  }
+
+  .modal-footer-text {
+    font-size: 3vh;
   }
 }
