@@ -167,7 +167,7 @@ export default function Snake({ autoFocus }) {
                   paddingLeft: '0.5vh',
                 }}
               >
-                RookiePlayer 2000XP
+                PizzaPlayer 2000XP
               </span>
             </WindowHeader>
             <WindowContent>

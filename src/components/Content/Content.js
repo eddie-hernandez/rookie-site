@@ -52,11 +52,12 @@ export default function Content({
           className="rookie-button"
           style={{ display: videoEnded ? 'block' : 'none' }}
         >
-          <img
+          {/* <img
             className="rookie-button-image"
             src={OrderButton}
             alt="Rookie Button"
-          />
+          /> */}
+          reserve a pie
         </a>
       )}
     </div>
