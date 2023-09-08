@@ -53,9 +53,9 @@ export default function App() {
         <div className={`outer-border ${showModal ? 'blur' : ''}`}>
           <div className="inner-border">
             <div className="body">
-              {/* {tokenWin ? ( */}
+              {tokenWin ? (
                 <Snake autoFocus={true} resLink={resLink} />
-              {/* ) : (
+              ) : (
                 <>
                   <Content
                     showModal={showModal}
@@ -71,7 +71,7 @@ export default function App() {
                     setTokenWin={setTokenWin}
                   />
                 </>
-              )} */}
+              )}
             </div>
           </div>
         </div>

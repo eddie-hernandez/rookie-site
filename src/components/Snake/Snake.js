@@ -181,7 +181,7 @@ export default function Snake({ resLink }) {
               <div className="snake-failure-content">
                 <h2>woah there buddy,</h2>
                 <h3>
-                  To play snake, you must rotate your device to portrait mode.
+                  to play snake, you gotta rotate your device to portrait mode.
                 </h3>
               </div>
             </ScrollView>
@@ -274,7 +274,7 @@ export default function Snake({ resLink }) {
                   ) : (
                     <div className="snake-title-and-play">
                       <div>
-                        <h3 className="snake-title">snake vs. pizza</h3>
+                        <h3 className="snake-title">snake: rookie edition</h3>
                       </div>
                       <Button
                         className="snake-play-button"
