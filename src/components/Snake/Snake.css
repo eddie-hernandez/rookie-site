@@ -44,6 +44,7 @@
   font-family: 'ms_sans_serif', monospace;
   background-color: black;
   color: #09ff00;
+  row-gap: 2vh;
 }
 
 .snake-title {
@@ -127,7 +128,6 @@
   .snake-title-and-play {
     width: 25vh;
     height: 25vh;
-    row-gap: 2vh;
   }
 
   .snake-controls {

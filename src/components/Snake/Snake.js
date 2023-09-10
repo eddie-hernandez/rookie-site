@@ -218,7 +218,6 @@ export default function Snake({ resLink }) {
                             <Button
                               onClick={handleStartGame}
                               className="snake-play-button"
-                              style={{ marginTop: '-1vh' }}
                             >
                               Play Again?
                             </Button>
