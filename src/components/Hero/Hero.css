@@ -55,7 +55,7 @@
 @media screen and (min-width: 1001px) and (max-width: 1440px) and (orientation: landscape) {
   .image2 {
     margin-top: -4vh;
-    width: 40vh;
+    width: 30vh;
   }
 
   @keyframes slideUp {

@@ -15,7 +15,10 @@ export default function Hero({ showModal, videoEnded }) {
         className={!showModal ? 'image2' : ''}
         src={Tile}
         alt="Rookie Hero"
-        style={{ display: !showModal ? 'block' : 'none' }}
+        style={{
+          display: !showModal ? 'block' : 'none',
+          cursor: videoEnded ? 'pointer' : 'auto',
+        }}
         onClick={handleClick}
       />
     </div>

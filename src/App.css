@@ -3,7 +3,7 @@
 html,
 body,
 #root {
-  height: 100vh; /* Fallback for browsers that do not support Custom Properties */
+  height: 100vh;
   height: calc(var(--vh, 1vh) * 100);
   margin: 0;
   padding: 0;
@@ -47,7 +47,7 @@ h4 {
   height: 100%;
 }
 
-/* Small devices (e.g., smartphones) */
+
 @media (max-width: 576px) {
   .app-container {
     margin: 4vh 0vh 0vh 0vh;
@@ -70,7 +70,7 @@ h4 {
 
 }
 
-/* Medium devices (e.g., tablets) */
+
 @media (min-width: 576px) and (max-width: 992px) {
   .app-container {
     margin: 6vh 1vh 0vh 1vh;
@@ -90,7 +90,7 @@ h4 {
   }
 }
 
-/* Large devices (e.g., desktops) */
+
 @media (min-width: 992px) and (max-width: 1440px) {
   .app-container {
     margin: 6vh;
