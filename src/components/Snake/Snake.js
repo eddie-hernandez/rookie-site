@@ -13,7 +13,7 @@ import './Snake.css'
 import './SnakeBoard.css'
 
 export default function Snake({ resLink }) {
-  const useKeyboardInput = (callback) => {
+  function useKeyboardInput(callback) {
     useEffect(() => {
       const handleKeyDown = (event) => {
         callback(event.keyCode)
@@ -27,7 +27,7 @@ export default function Snake({ resLink }) {
     }, [callback])
   }
 
-  const getRandomFoodPosition = () => {
+  function getRandomFoodPosition() {
     return {
       x: Math.floor(Math.random() * 10),
       y: Math.floor(Math.random() * 10),
@@ -40,6 +40,7 @@ export default function Snake({ resLink }) {
   const [food, setFood] = useState(getRandomFoodPosition())
   const [speed, setSpeed] = useState(100)
   const [playing, setPlaying] = useState(false)
+  const [score, setScore] = useState(0)
   const [gameOver, setGameOver] = useState(false)
 
   useKeyboardInput((keyCode) => {
@@ -54,7 +55,7 @@ export default function Snake({ resLink }) {
     }
   })
 
-  const handleButtonClick = (keyCode) => {
+  function handleButtonClick(keyCode) {
     if (keyCode === 38 && direction !== 'DOWN') {
       setDirection('UP')
     } else if (keyCode === 40 && direction !== 'UP') {
@@ -75,17 +76,18 @@ export default function Snake({ resLink }) {
 
     const interval = setInterval(moveSnake, speed)
 
-    // Cleanup interval on component unmount
+    // cleanup interval on component unmount
     return () => clearInterval(interval)
   }, [snake, gameOver])
 
   useEffect(() => {
     if (playing) {
-      gameBoardRef.current.focus() // Focus the game board container when the game starts
+      // add focus to the game board
+      gameBoardRef.current.focus()
     }
   }, [playing])
 
-  const moveSnake = () => {
+  function moveSnake() {
     const head = { ...snake[0] }
 
     switch (direction) {
@@ -105,24 +107,26 @@ export default function Snake({ resLink }) {
         break
     }
 
-    // Check for self-collision
+    // check for self-collision
     for (let i = 1; i < snake.length; i++) {
       if (snake[i].x === head.x && snake[i].y === head.y) {
         setGameOver(true)
-        return // Exit the function early
+        // end game when snake runs into itself
+        return
       }
     }
 
     if (head.x === food.x && head.y === food.y) {
-      // Snake has eaten the food
+      // snake has eaten the food
       setFood(getRandomFoodPosition())
       setSpeed(speed - 5)
+      setScore(score + 1)
 
-      // Grow the snake by adding a new segment to the head position
+      // grow snake by adding a new segment to head position
       const newSnake = [head, ...snake]
       setSnake(newSnake)
     } else {
-      // Remove the tail segment when the snake doesn't eat the food
+      // remove tail segment when snake doesn't eat food
       const newSnake = [head, ...snake.slice(0, -1)]
       setSnake(newSnake)
     }
@@ -132,7 +136,8 @@ export default function Snake({ resLink }) {
     }
   }
 
-  const handleStartGame = () => {
+  function handleStartGame() {
+    setScore(0)
     setGameOver(false)
     setSnake([{ x: 5, y: 5 }])
     setDirection('RIGHT')
@@ -141,7 +146,7 @@ export default function Snake({ resLink }) {
     setPlaying(true)
   }
 
-  const calculateSegmentStyle = (segment, boardWidth, boardHeight) => {
+  function calculateSegmentStyle(segment, boardWidth, boardHeight) {
     const cellSize = Math.min(boardWidth, boardHeight) / 10
     return {
       top: `${segment.y * cellSize}px`,
@@ -151,7 +156,7 @@ export default function Snake({ resLink }) {
     }
   }
 
-  const calculateFoodStyle = (boardWidth, boardHeight) => {
+  function calculateFoodStyle(boardWidth, boardHeight) {
     const cellSize = Math.min(boardWidth, boardHeight) / 10
     return {
       top: `${food.y * cellSize}px`,
@@ -209,12 +214,12 @@ export default function Snake({ resLink }) {
                       {gameOver ? (
                         <>
                           <div className="snake-title-and-play">
-                            <h3
+                            <h4
                               className="snake-title"
-                              style={{ marginBottom: '0.5vh' }}
                             >
                               wow, bud, you lost
-                            </h3>
+                            </h4>
+                            <h4 className='snake-title'>score: {score}</h4>
                             <Button
                               onClick={handleStartGame}
                               className="snake-play-button"
@@ -222,7 +227,6 @@ export default function Snake({ resLink }) {
                               Play Again?
                             </Button>
                             <Button
-                              style={{ fontSize: '2.5vh' }}
                               as="a"
                               className="snake-reserve-button"
                               href={resLink}
