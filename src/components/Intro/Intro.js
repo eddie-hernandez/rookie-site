@@ -94,6 +94,15 @@ export default function Intro({ showModal, setShowModal, handleEnter }) {
               )}
             </div>
           </div>
+          <a
+            href="https://partiful.com/e/In0CPIs2nMWYHodifiZu"
+            target="_blank"
+            rel="noreferrer"
+            className="blue-button"
+          >
+            RSVP HERE
+          </a>
+
           <button
             onClick={() => {
               setShowModal(false)
@@ -102,13 +111,13 @@ export default function Intro({ showModal, setShowModal, handleEnter }) {
             ENTER SITE
           </button>
         </div>
-          <div className="modal-footer">
-            <h4 className="modal-footer-text">
-              This website includes sound.
-              <br />
-              We recommend turning it on for the full experience.
-            </h4>
-          </div>
+        <div className="modal-footer">
+          <h4 className="modal-footer-text">
+            This website includes sound.
+            <br />
+            We recommend turning it on for the full experience.
+          </h4>
+        </div>
       </div>
     </div>
   )

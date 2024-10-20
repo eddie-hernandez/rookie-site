@@ -30,7 +30,8 @@
 .modal-content-container {
   text-align: center;
   display: flex;
-  height: 70vh;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
   row-gap: 1vh;
 }
@@ -40,8 +41,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  row-gap: 5vh;
-  padding: 2vh 0vh;
+  row-gap: 2vh;
+  padding: 0vh 0vh;
 }
 
 .modal-content {
@@ -59,6 +60,28 @@
 
 .modal-comment-content {
   text-transform: lowercase;
+}
+
+.blue-button {
+  padding: 10px 20px 5px 20px;
+  font-size: 3vh;
+  cursor: pointer;
+  background-color: #0022ff;
+  border: 3px outset black;
+  color: white;
+  font-family: 'Special Elite', cursive;
+  text-decoration: none;
+}
+
+.blue-button:hover {
+  cursor: pointer;
+  background-color: blue;
+  color: white;
+}
+
+.blue-button:active {
+  background-color: black;
+  color: white;
 }
 
 .modal h1 {
@@ -104,7 +127,7 @@
   }
 
   .rookie-modal-logo {
-    margin-top: 3vh;
+    margin-bottom: 3vh;
     width: 40vh;
   }
 
